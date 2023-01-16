@@ -64,7 +64,7 @@ class Search extends Component {
             <div key={ index }>
               <p>{ album.name }</p>
               <Link
-                data-testId={ `link-to-album-${album.id}` }
+                data-testid={ `link-to-album-${album.id}` }
                 to={ `/album/${album.id}` }
               >
                 Teste
