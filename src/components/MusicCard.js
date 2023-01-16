@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 export default class MusicCard extends Component {
   addFavoriteSong = (song) => {
@@ -12,7 +12,9 @@ export default class MusicCard extends Component {
         updateFavorites(song.trackId);
       });
     } else {
-      updateLoading(false);
+      removeSong(song).then(() => {
+        updateLoading(false);
+      });
     }
   };
 
