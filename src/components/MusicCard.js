@@ -4,11 +4,16 @@ import { addSong } from '../services/favoriteSongsAPI';
 
 export default class MusicCard extends Component {
   addFavoriteSong = (song) => {
-    const { updateLoading } = this.props;
+    const { updateLoading, favoriteSongsIds, updateFavorites } = this.props;
     updateLoading(true);
-    addSong(song).then(() => {
+    if (!(favoriteSongsIds.includes(song.trackId))) {
+      addSong(song).then(() => {
+        updateLoading(false);
+        updateFavorites(song.trackId);
+      });
+    } else {
       updateLoading(false);
-    });
+    }
   };
 
   render() {
