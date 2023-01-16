@@ -49,7 +49,8 @@ class Album extends Component {
   };
 
   updateFavorites = (id) => {
-    this.setState({ favoriteSongsIds: [...this.state.favoriteSongsIds, id] });
+    const { favoriteSongsIds } = this.state;
+    this.setState({ favoriteSongsIds: [...favoriteSongsIds, id] });
   };
 
   updateCheck = (id) => {
