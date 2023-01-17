@@ -13,7 +13,8 @@ export default class MusicCard extends Component {
       });
     } else {
       removeSong(song).then(() => {
-        updateLoading(false);
+        const ms = 500;
+        setTimeout(() => updateLoading(false), ms);
       });
     }
   };
